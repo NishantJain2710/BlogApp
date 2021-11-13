@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOG APP</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">   
+	<link rel="stylesheet" type="text/css" href="/stylesheets/landing.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-grey fixed-top py-1">
+		<div class="container">
+			<a class="navbar-brand" href="/"> BlogApp</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			    </ul>
+
+			    <ul class="navbar-nav  navbar-right">
+			    	<%if(!currentUser){%>
+				    	<li class="nav-item">
+				        	<a class="nav-link" href="/register">Sign Up <i class="fa fa-user-plus"></i></a>
+				    	</li>
+				    	<li class="nav-item ">
+				   			<a class="nav-link" href="/login">Login <i class="fa fa-user"></i></a>
+				   		</li>
+			    	<%}else{%>
+			    		<li class="nav-item">
+				        	<a class="nav-link" href="#"><%= currentUser.username %> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+				    	</li>
+				    	<li class="nav-item">
+				        	<a class="nav-link" href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+				    	</li>
+				    <%}%>
+			    </ul>
+
+			</div>
+		</div>
+	</nav>
+
+	<div class="container top-margin">
+		<% if(success && success.length>0){%>
+		<div class="alert alert-success" role="alert">
+			<%=success%>
+		</div>
+		<%}%>
+		<% if(error && error.length>0){%>
+		<div class="alert alert-danger " role="alert">
+			<%= error%>
+		</div>
+		<%}%>
+	</div>
+
+
+<div id="landing-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="content">
+					<h1 class="display-3">Blog App</h1>
+					<h3>Publish Your Feelings, Your Way!!!<h3>
+					<hr>
+					<a class="btn btn-light btn-lg" href="/blogs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Start BlogApp</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+ <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+ </ul>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<%- include("../partials/header") %>
+<div class="container top-margin">
+	<div class="row">
+		<div class="col-md-3">
+			<ul class="list-group">
+			  <li class="list-group-item active">About</li>
+			  <li class="list-group-item">Reviews</li>
+			  <li class="list-group-item">Comments</li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<div class="card-body">
+					<img class="card-img-top mb-2" src="<%= blog.image %>">
+					<div class="caption-full">
+						<h4 class="card-title"><a><%= blog.title%></a></h4>
+						<h6><%= moment(blog.Created).fromNow() %></h6>
+						<p class="card-text"><%= blog.body %></p>
+						<em><p>Submitted By <%=blog.author.username %></p></em>
+						<div class="text-right row">
+							<% if(currentUser && (blog.author.id === currentUser._id)){ %>
+							<a href="/blogs/<%= blog._id %>/edit" class="btn btn-lg btn-dark m-3">Edit</a>
+							<form  action="/blogs/<%= blog._id%>?_method=DELETE" method="post">
+									<button class=" m-3 btn btn-danger btn-lg">Delete</button>
+							</form>
+							<%}%>
+						</div>
+						<hr>
+							<a class="btn btn-primary btn-lg mb-3 mt-0" href="/blogs/<%= blog._id %>/comments/new">Add Comment</a>
+							<% blog.comments.forEach(function(cmt){ %>
+								<div class="row">
+									<div class="col-md-12">
+										<strong><%= cmt.author.username %></strong>
+										<span class="pull-right"><%= moment(cmt.Created).fromNow() %></span>
+										<p class="comment-p"><%= cmt.commentTitle %></p>
+											<% if(currentUser && (cmt.author.id === currentUser._id)){ %>
+												<div class="row">
+													<a id="mg-3" class="btn my-btn btn-warning" href="/blogs/<%=blog._id%>/comments/<%=cmt._id%>/edit">Edit</a>
+													<form  action="/blogs/<%=blog._id%>/comments/<%=cmt._id%>?_method=DELETE" method= POST>
+														<input type = "submit" class="btn my-btn btn-danger" value = "Delete">
+													</form>
+												</div>
+											<%}%><hr>
+									</div>
+								</div>
+							<% }) %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include("../partials/footer") %>

@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<div class="container center">
+	<div class = "row justify-content-center">
+		<div class = "col-lg-6 col-md-8 align-self-center">
+			<h2 class ="display-4 my-3">Welcome Back To BlogApp</h2>
+			<form action="/login" method="POST">
+			  <div class="form-group">
+			    <input type="text" class="form-control form-control-lg mb-3" name = "username" placeholder = "username">
+			  <div class="form-group">
+			    <input type="password" class="form-control form-control-lg" name = "password" placeholder = "password" >
+			  </div>
+			  <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+<%- include("partials/footer") %>
+

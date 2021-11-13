@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+	<div class="container top-margin">
+		<div class="container card" id="new">
+			<h1 class="display-4">Edit comment</h1>
+			<form action="/blogs/<%=blog_id%>/comments/<%=comments._id%>?_method=PUT" method="POST">
+	  			<div class="form-group">
+					<label >Edit Comment</label>
+				    <input type="text" class="form-control" name="comments[commentTitle]" value = "<%= comments.commentTitle%>" >
+				</div>
+	  			<button type="submit" class="btn btn-success btn-lg ">Comment</button>
+			</form>
+		</div>	
+	</div>
+<%- include("../partials/footer") %>

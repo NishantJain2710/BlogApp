@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+	<div class="container">
+		<div class="jumbotron bg-grey top-margin">
+		    <h1 class="display-4"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> PUBLISH YOUR FEELINGS, YOUR WAY!!!</h1>
+		    <p class="lead">Create a unique and beautiful blog, It's easy and free.</p>
+		    <hr>
+		    <a class="btn btn-info btn-lg" href="/blogs/new">Create your blog</a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row ">
+			<% blogs.forEach(function(blog){%>
+			 	<div id="cardDiv" class="col-lg-4 col-sm-6">
+					<div class="card ">
+						<img src="<%= blog.image %>" class="card-img-top rounded" alt="">
+					    <div class="card-body">
+						    <h5 class="card-title"><%= blog.title %></h5>
+						    <span class="date"><%= blog.Created.toDateString() %> (<%= moment(blog.Created).fromNow() %>)</span>
+						    <p class="card-text"><%= blog.body.substring(0,100) %>...</p>
+						    <a href="/blogs/<%= blog._id %>" class="btn btn-secondary">Read more</a>
+					    </div>
+					</div>	
+				</div>
+			<%}) %>	
+		</div>	
+	</div>
+<%- include("../partials/footer") %>

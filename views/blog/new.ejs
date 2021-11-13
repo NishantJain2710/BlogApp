@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+	<div class="container">
+		<div class="container card top-margin"  id="new">
+			<h1 class="display-4">New Blog</h1>
+			<form action="/blogs" method="POST">
+	  			<div class="form-group">
+					<label >Title</label>
+				    <input type="text" class="form-control" name="blog[title]">
+				</div>
+				<div class="form-group">
+					<label >Image URL</label>
+				    <input type="text" class="form-control" name="blog[image]">
+				</div>
+				<div class="field">
+					<label>Blog Content</label>
+					<textarea class="form-control" name = "blog[body]"></textarea>
+				</div>
+	  			<button type="submit" class="btn btn-success btn-lg ">Submit</button>
+			</form>
+		</div>	
+	</div>
+<%- include("../partials/footer") %>
